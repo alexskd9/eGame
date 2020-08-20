@@ -21,11 +21,16 @@ namespace eGame.Helpers
                 p.Add("Currency", transfer.Currency);
                 p.Add("Amount", transfer.Amount);
                 p.Add("Type", transfer.Type);
+                p.Add("RetValue", DbType.Int32, direction: ParameterDirection.Output);
 
                 var search = connection.Query($"select * from Transfers where TransferId = '{transfer.TransferId}'", commandType: CommandType.Text);
                 if (search.Count() > 0)
                 {
                     connection.Query("CancelBet", param: p, commandType: CommandType.StoredProcedure);
+                }
+                else
+                {
+                    throw new Exception("Transaction not found");
                 }
                 return transfer;
             }
