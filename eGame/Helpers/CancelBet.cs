@@ -22,7 +22,11 @@ namespace eGame.Helpers
                 p.Add("Amount", transfer.Amount);
                 p.Add("Type", transfer.Type);
 
-                var search = connection.Query($"select * from Transfers where TransferId = '{transfer.TransferId}'", commandType: CommandType.Text);
+
+                DynamicParameters p1 = new DynamicParameters();
+                p1.Add("TransferId", transfer.TransferId);
+                var search = connection.Query($"select * from Transfers where TransferId = @TransferId ", param:p1, commandType: CommandType.Text);
+
                 if (search.Count() > 0)
                 {
                     connection.Query("CancelBet", param: p, commandType: CommandType.StoredProcedure);
