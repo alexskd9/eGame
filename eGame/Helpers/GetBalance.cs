@@ -10,7 +10,7 @@ namespace eGame.Helpers
 {
     public class GetBalance
     {
-        public static AuthorizeMain Balance(int AcctID)
+        public static AuthorizeMain Balance(int AcctID, string Currency)
         {
             string connString = ConfigurationManager.ConnectionStrings["ConnString"].ConnectionString;
             AccountInfoMain search;
@@ -18,6 +18,7 @@ namespace eGame.Helpers
             {
                 DynamicParameters p = new DynamicParameters();
                 p.Add("AcctId", AcctID);
+                p.Add("Currency", Currency);
 
                 search = connection.Query<AccountInfoMain>("GetBalance", param: p, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }

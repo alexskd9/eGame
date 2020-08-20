@@ -10,7 +10,7 @@ namespace eGame.Helpers
 {
     public class Authorization
     {
-        public static Authorize Authorizaton(string _Token)
+        public static Authorize Authorizaton(int AcctId, string _Token)
         {
             string connString = ConfigurationManager.ConnectionStrings["ConnString"].ConnectionString;
             AccountInfo search;
@@ -18,6 +18,7 @@ namespace eGame.Helpers
             {
                 DynamicParameters p = new DynamicParameters();
                 p.Add("token", _Token);
+                p.Add("AcctId", AcctId);
 
                 search = connection.Query<AccountInfo>("AuthorizeAccount", param: p, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }

@@ -13,6 +13,5 @@
         public string SerialNo { get; set; }
         public string ReferenceId { get; set; }
         public int SpecialGame { get; set; }
-        public string[] RefTicketIds { get; set; }
     }
 }
