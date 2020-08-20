@@ -10,7 +10,7 @@ namespace eGame.Helpers
 {
     public class CancelBet
     {
-        public static Transfer Cancel(Transfer transfer)
+        public static (Transfer, int) Cancel(Transfer transfer)
         {
             string connString = ConfigurationManager.ConnectionStrings["ConnString"].ConnectionString;
             using (var connection = new SqlConnection(connString))
@@ -21,18 +21,19 @@ namespace eGame.Helpers
                 p.Add("Currency", transfer.Currency);
                 p.Add("Amount", transfer.Amount);
                 p.Add("Type", transfer.Type);
-                p.Add("RetValue", DbType.Int32, direction: ParameterDirection.Output);
 
                 var search = connection.Query($"select * from Transfers where TransferId = '{transfer.TransferId}'", commandType: CommandType.Text);
                 if (search.Count() > 0)
                 {
                     connection.Query("CancelBet", param: p, commandType: CommandType.StoredProcedure);
+                    return (transfer, 0);
                 }
                 else
                 {
-                    throw new Exception("Transaction not found");
+                    TransferResponse tr = new TransferResponse();
+                    tr.Code = 109;
+                    return (transfer, tr.Code);
                 }
-                return transfer;
             }
         }
     }
