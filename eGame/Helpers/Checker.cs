@@ -49,7 +49,6 @@ namespace eGame.Helpers
                         break;
                     case 2:
                         var cancelBet = CancelBet.Cancel(transfer);
-                        accInfo.Code = 50116;
                         accInfo.Msg = ResponseCodes.response(accInfo.Code);
                         break;
                     case 4:
