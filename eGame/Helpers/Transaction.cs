@@ -9,28 +9,30 @@ using System.Transactions;
 
 namespace eGame.Helpers
 {
-    public class PlaceBet
+    public class Transaction
     {
-        public static Transfer Transfer(Transfer transfer)
+        public static string Transfer(Transfer transfer)
         {
             string connString = ConfigurationManager.ConnectionStrings["ConnString"].ConnectionString;
             using (var connection = new SqlConnection(connString))
             {
                 DynamicParameters p = new DynamicParameters();
-                p.Add("TransferId", DbType.Guid.ToString(), direction: ParameterDirection.Output);
+                p.Add("TransferId", dbType: DbType.Guid, direction: ParameterDirection.Output);
                 p.Add("AcctId", transfer.AcctId); 
                 p.Add("Currency", transfer.Currency);
                 p.Add("Amount", transfer.Amount);
                 p.Add("Type", transfer.Type);
+                p.Add("TicketId", transfer.TicketId);
                 p.Add("Channel", transfer.Channel);
                 p.Add("GameCode", transfer.GameCode);
-                p.Add("TicketId", transfer.TicketId);
                 p.Add("SpecialGameId", transfer.SpecialGame);
-                p.Add("ReferenceId", transfer.ReferenceId);
+                p.Add("ReferenceId", Guid.NewGuid());
+                p.Add("RetVal", dbType: DbType.Int32, direction: ParameterDirection.ReturnValue);
 
-                connection.Query("PlaceBet", param: p, commandType: CommandType.StoredProcedure);
-                transfer.TransferId = p.Get<string>("TransferId");
-                return transfer;
+                connection.Query("Transaction", param: p, commandType: CommandType.StoredProcedure);
+                transfer.TransferId = p.Get<Guid>("TransferId").ToString();
+                int val = p.Get<int>("RetVal");
+                return transfer.TransferId;
             }
         }
     }
