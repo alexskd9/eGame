@@ -10,7 +10,7 @@ namespace eGame.Helpers
 {
     public class CancelBet
     {
-        public static (Transfer, int) Cancel(Transfer transfer)
+        public static int Cancel(Transfer transfer, out int res)
         {
             string connString = ConfigurationManager.ConnectionStrings["ConnString"].ConnectionString;
             using (var connection = new SqlConnection(connString))
@@ -21,6 +21,7 @@ namespace eGame.Helpers
                 p.Add("Currency", transfer.Currency);
                 p.Add("Amount", transfer.Amount);
                 p.Add("Type", transfer.Type);
+                p.Add("RetVal", dbType: DbType.Int32, direction: ParameterDirection.ReturnValue);
 
 
                 DynamicParameters p1 = new DynamicParameters();
@@ -30,13 +31,12 @@ namespace eGame.Helpers
                 if (search.Count() > 0)
                 {
                     connection.Query("CancelBet", param: p, commandType: CommandType.StoredProcedure);
-                    return (transfer, 0);
+                    res = p.Get<int>("RetVal");
+                    return res;
                 }
                 else
-                {
-                    TransferResponse tr = new TransferResponse();
-                    tr.Code = 109;
-                    return (transfer, tr.Code);
+                {                    
+                    return res = 109;
                 }
             }
         }

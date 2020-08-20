@@ -25,8 +25,8 @@ namespace eGame.Helpers
                         }
                         else if (transfer.Type == 2)
                         {
-                            var cancelBet = CancelBet.Cancel(transfer);
-                            accInfo.Code = cancelBet.Item2;
+                            var cancelBet = CancelBet.Cancel(transfer, out int res);
+                            accInfo.Code = res;
                             accInfo.Msg = ResponseCodes.response(accInfo.Code);
                         }
                         else
