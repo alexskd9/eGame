@@ -8,45 +8,54 @@ namespace eGame.Helpers
     {
         public static TransferResponse Check(AuthorizeMain accInfo, Transfer transfer)
         {
-            if (accInfo.AccountInfoMain.Currency.ToUpper() == transfer.Currency.ToUpper())
+            if (accInfo.AccountInfoMain != null)
             {
-                if (transfer.Amount.ToString().All(char.IsDigit))
+                if (accInfo.AccountInfoMain.Currency.ToUpper() == transfer.Currency.ToUpper())
                 {
-                    if (transfer.Amount <= 0)
+                    if (transfer.Amount.ToString().All(char.IsDigit))
                     {
-                        accInfo.Code = 50113;
-                        accInfo.Msg = ResponseCodes.response(accInfo.Code);
-                    }
-                    else
-                    {
-                        if (transfer.Type == 1 && transfer.Amount <= accInfo.AccountInfoMain.Balance || transfer.Type == 4)
+                        if (transfer.Amount <= 0)
                         {
-                            var placeBet = Transaction.Transfer(transfer);
-                        }
-                        else if (transfer.Type == 2)
-                        {
-                            var cancelBet = CancelBet.Cancel(transfer, out int res);
-                            accInfo.Code = res;
-                            accInfo.Msg = ResponseCodes.response(accInfo.Code);
+                            accInfo.Code = 50113;
+                            accInfo.Msg = ResponseCodes.Response(accInfo.Code);
                         }
                         else
                         {
-                            accInfo.Code = 50110;
-                            accInfo.Msg = ResponseCodes.response(accInfo.Code);
+                            if (transfer.Type == 1 && transfer.Amount <= accInfo.AccountInfoMain.Balance || transfer.Type == 4)
+                            {
+                                var placeBet = Transaction.Transfer(transfer);
+                            }
+                            else if (transfer.Type == 2)
+                            {
+                                var cancelBet = CancelBet.Cancel(transfer, out int res);
+                                accInfo.Code = res;
+                                accInfo.Msg = ResponseCodes.Response(accInfo.Code);
+                            }
+                            else
+                            {
+                                accInfo.Code = 50110;
+                                accInfo.Msg = ResponseCodes.Response(accInfo.Code);
+                            }
                         }
+                    }
+                    else
+                    {
+                        accInfo.Code = 106;
+                        accInfo.Msg = ResponseCodes.Response(accInfo.Code);
                     }
                 }
                 else
                 {
-                    accInfo.Code = 106;
-                    accInfo.Msg = ResponseCodes.response(accInfo.Code);
+                    accInfo.Code = 50112;
+                    accInfo.Msg = ResponseCodes.Response(accInfo.Code);
                 }
             }
             else
             {
-                accInfo.Code = 50112;
-                accInfo.Msg = ResponseCodes.response(accInfo.Code);
+                accInfo.Code = 50100;
+                accInfo.Msg = ResponseCodes.Response(accInfo.Code);
             }
+            
 
             #region Unnecessary part
             //switch (transfer.Type)
@@ -116,7 +125,7 @@ namespace eGame.Helpers
             else
             {
                 tr.Code = 50100;
-                tr.Msg = ResponseCodes.response(tr.Code);
+                tr.Msg = ResponseCodes.Response(tr.Code);
                 tr.TransferId = transfer.TransferId;
                 tr.SerialNo = Guid.NewGuid().ToString();
                 return tr;

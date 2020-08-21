@@ -2,12 +2,14 @@
 {
     public class ResponseCodes
     {
-        public static string response(int code)
+        public static string Response(int code)
         {
             switch (code)
             {
+                case -2:
+                    return "Reference ID already exists";
                 case -1:
-                    return "Operation is already completed";
+                    return "Transaction is already canceled";
                 case 0:
                     return "Success";
                 case 1:

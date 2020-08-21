@@ -26,12 +26,12 @@ namespace eGame.Helpers
             authorize.AccountInfo = search;
             if (search != null)
             {
-                authorize.Msg = ResponseCodes.response(authorize.Code);
+                authorize.Msg = ResponseCodes.Response(authorize.Code);
             }
             else
             {
                 authorize.Code = 50104;
-                authorize.Msg = ResponseCodes.response(authorize.Code);
+                authorize.Msg = ResponseCodes.Response(authorize.Code);
             }
             authorize.SerialNo = Guid.NewGuid().ToString();
             return authorize;
