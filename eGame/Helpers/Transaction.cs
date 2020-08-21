@@ -4,8 +4,6 @@ using System;
 using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Collections.Generic;
-using System.Transactions;
 
 namespace eGame.Helpers
 {

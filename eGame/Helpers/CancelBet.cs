@@ -1,6 +1,5 @@
 ﻿using Dapper;
 using eGame.Models;
-using System;
 using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -26,18 +25,9 @@ namespace eGame.Helpers
 
                 DynamicParameters p1 = new DynamicParameters();
                 p1.Add("TransferId", transfer.TransferId);
-                var search = connection.Query($"select * from Transfers where TransferId = @TransferId ", param:p1, commandType: CommandType.Text);
-
-                if (search.Count() > 0)
-                {
-                    connection.Query("CancelBet", param: p, commandType: CommandType.StoredProcedure);
-                    res = p.Get<int>("RetVal");
-                    return res;
-                }
-                else
-                {                    
-                    return res = 109;
-                }
+                connection.Query("CancelBet", param: p, commandType: CommandType.StoredProcedure);
+                res = p.Get<int>("RetVal");
+                return res;
             }
         }
     }

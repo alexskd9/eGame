@@ -6,6 +6,8 @@
         {
             switch (code)
             {
+                case -1:
+                    return "Operation is already completed";
                 case 0:
                     return "Success";
                 case 1:
