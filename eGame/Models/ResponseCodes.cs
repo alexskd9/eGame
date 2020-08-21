@@ -1,4 +1,6 @@
-﻿namespace eGame.Models
+﻿using System.Web.Mvc;
+
+namespace eGame.Models
 {
     public class ResponseCodes
     {
@@ -6,10 +8,6 @@
         {
             switch (code)
             {
-                case -2:
-                    return "Reference ID already exists";
-                case -1:
-                    return "Transaction is already canceled";
                 case 0:
                     return "Success";
                 case 1:
@@ -32,6 +30,8 @@
                     return "Duplicated Serial NO.";
                 case 109:
                     return "Reference No Not found";
+                case 110:
+                    return "Reference No already exists";
                 case 10113:
                     return "Merchant Not Found";
                 case 112:
@@ -64,6 +64,10 @@
                     return "Date Format Invalid";
                 case 10104:
                     return "Password Invalid";
+                case 10105:
+                    return "Transaction is already canceled";
+                case 999:
+                    return "Unknown error. Bet canceled";
                 default:
                     return "Unexpected error";
             }

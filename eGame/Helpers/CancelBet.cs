@@ -3,7 +3,6 @@ using eGame.Models;
 using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
 
 namespace eGame.Helpers
 {
