@@ -31,7 +31,7 @@ namespace eGame.Models
                 case 109:
                     return "Reference No Not found";
                 case 110:
-                    return "Reference No already exists";
+                    return "Dplicated Reference No";
                 case 10113:
                     return "Merchant Not Found";
                 case 112:
