@@ -29,7 +29,9 @@ namespace eGame.Helpers
 
             if (transfer.Type == 1 && transfer.Amount <= accInfo.AccountInfoMain.Balance || transfer.Type == 4)
             {
-                Transaction.Transfer(transfer);
+                Transaction.Transfer(transfer, out int res);
+                accInfo.Code = res;
+                accInfo.Msg = ResponseCodes.Response(accInfo.Code);
                 return TransferResponseModel.ModelCreator(transfer, accInfo.Code, accInfo.Msg);
             }
 

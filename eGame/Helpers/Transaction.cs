@@ -9,7 +9,7 @@ namespace eGame.Helpers
 {
     public class Transaction
     {
-        public static string Transfer(Transfer transfer)
+        public static string Transfer(Transfer transfer, out int res)
         {
             string connString = ConfigurationManager.ConnectionStrings["ConnString"].ConnectionString;
             using (var connection = new SqlConnection(connString))
@@ -19,17 +19,17 @@ namespace eGame.Helpers
                 p.Add("AcctId", transfer.AcctId); 
                 p.Add("Currency", transfer.Currency);
                 p.Add("Amount", transfer.Amount);
-                p.Add("Type", transfer.Type);
+                p.Add("Type", 1);
                 p.Add("TicketId", transfer.TicketId);
                 p.Add("Channel", transfer.Channel);
                 p.Add("GameCode", transfer.GameCode);
                 p.Add("SpecialGameId", transfer.SpecialGame);
-                p.Add("ReferenceId", Guid.NewGuid());
+                p.Add("ReferenceId", transfer.ReferenceId);
                 p.Add("RetVal", dbType: DbType.Int32, direction: ParameterDirection.ReturnValue);
 
                 connection.Query("Transaction", param: p, commandType: CommandType.StoredProcedure);
                 transfer.TransferId = p.Get<Guid>("TransferId").ToString();
-                int val = p.Get<int>("RetVal");
+                res = p.Get<int>("RetVal");
                 return transfer.TransferId;
             }
         }
