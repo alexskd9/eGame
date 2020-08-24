@@ -1,5 +1,4 @@
 ﻿using eGame.Models;
-using System;
 
 namespace eGame.Helpers
 {
@@ -33,6 +32,7 @@ namespace eGame.Helpers
                 Transaction.Transfer(transfer);
                 return TransferResponseModel.ModelCreator(transfer, accInfo.Code, accInfo.Msg);
             }
+
             else if (transfer.Type == 2)
             {
                 CancelBet.Cancel(transfer, out int res);
@@ -40,6 +40,7 @@ namespace eGame.Helpers
                 accInfo.Msg = ResponseCodes.Response(accInfo.Code);
                 return TransferResponseModel.ModelCreator(transfer, accInfo.Code, accInfo.Msg);
             }
+
             return null;
         }
     }
