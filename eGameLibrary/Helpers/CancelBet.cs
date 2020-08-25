@@ -10,7 +10,7 @@ namespace eGameLibrary.Helpers
 {
     public class CancelBet
     {
-        public static (int, string) Cancel(Transfer transfer, out int res)
+        public static string Cancel(Transfer transfer, out int res)
         {
             string connString = ConfigurationManager.ConnectionStrings["ConnString"].ConnectionString;
             using (var connection = new SqlConnection(connString))
@@ -35,7 +35,7 @@ namespace eGameLibrary.Helpers
                 }
                 res = p.Get<int>("RetVal");
                 transfer.TransferId = p.Get<Guid>("TransferId").ToString();
-                return (res, transfer.TransferId);
+                return transfer.TransferId;
             }
         }
     }

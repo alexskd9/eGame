@@ -76,3 +76,12 @@ C:\Users\BS-Dev\source\repos\eGame\eGame\obj\Debug\eGame.pdb
 C:\Users\BS-Dev\source\repos\eGame\eGame\obj\Debug\eGame.csprojAssemblyReference.cache
 C:\Users\BS-Dev\source\repos\eGame\eGame\bin\eGameLibrary.dll
 C:\Users\BS-Dev\source\repos\eGame\eGame\bin\eGameLibrary.pdb
+C:\Users\BS-Dev\source\repos\eGame\eGame\bin\Unity.Container.dll
+C:\Users\BS-Dev\source\repos\eGame\eGame\bin\Unity.Mvc5.dll
+C:\Users\BS-Dev\source\repos\eGame\eGame\bin\Unity.Abstractions.dll
+C:\Users\BS-Dev\source\repos\eGame\eGame\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\BS-Dev\source\repos\eGame\eGame\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\BS-Dev\source\repos\eGame\eGame\bin\eGameLibrary.dll.config
+C:\Users\BS-Dev\source\repos\eGame\eGame\bin\Unity.Container.pdb
+C:\Users\BS-Dev\source\repos\eGame\eGame\bin\Unity.Abstractions.pdb
+C:\Users\BS-Dev\source\repos\eGame\eGame\bin\System.Runtime.CompilerServices.Unsafe.xml
