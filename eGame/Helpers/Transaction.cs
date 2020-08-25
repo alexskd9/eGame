@@ -19,7 +19,7 @@ namespace eGame.Helpers
                 p.Add("AcctId", transfer.AcctId); 
                 p.Add("Currency", transfer.Currency);
                 p.Add("Amount", transfer.Amount);
-                p.Add("Type", 1);
+                p.Add("Type", transfer.Type);
                 p.Add("TicketId", transfer.TicketId);
                 p.Add("Channel", transfer.Channel);
                 p.Add("GameCode", transfer.GameCode);

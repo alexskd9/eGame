@@ -17,7 +17,7 @@ namespace eGame.Helpers
             {
                 DynamicParameters p = new DynamicParameters();
                 p.Add("TransferId", dbType: DbType.Guid, direction: ParameterDirection.Output);
-                p.Add("ReferenceId", transfer.TransferId);
+                p.Add("ReferenceId", transfer.ReferenceId);
                 p.Add("AcctId", transfer.AcctId);
                 p.Add("Currency", transfer.Currency);
                 p.Add("Amount", transfer.Amount);
