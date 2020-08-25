@@ -60,7 +60,7 @@ namespace eGameLibrary.Helpers
 
         public TransferResponse ModelCreator(Transfer transfer, int Code, string Msg)
         {
-            AuthorizeMain accinfo2 = GetBalance.Balance(transfer.AcctId, transfer.Currency);
+            AuthorizeMain accinfo2 = Balance(transfer.AcctId, transfer.Currency);
             TransferResponse tr = new TransferResponse();
             if (accinfo2.AccountInfoMain != null)
             {

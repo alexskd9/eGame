@@ -81,13 +81,8 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Contracts\IGameRepository.cs" />
     <Compile Include="DAL\DbOperations.cs" />
-    <Compile Include="Helpers\Authorization.cs" />
-    <Compile Include="Helpers\CancelBet.cs" />
     <Compile Include="Helpers\Checker.cs" />
     <Compile Include="Helpers\GameRepository.cs" />
-    <Compile Include="Helpers\GetBalance.cs" />
-    <Compile Include="Helpers\Transaction.cs" />
-    <Compile Include="Helpers\TransferResponseModel.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountInfo.cs" />
     <Compile Include="Models\AccountInfoMain.cs" />

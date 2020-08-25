@@ -29,16 +29,18 @@ namespace eGameLibrary.Controllers
         [HttpPost]
         public JsonResult PlaceBet(Transfer transfer)
         {
+            Checker c = new Checker(_gameRepository);
             AuthorizeMain accInfo = _gameRepository.Balance(transfer.AcctId, transfer.Currency);
-            TransferResponse classToCheck = Checker.Check(accInfo, transfer);
+            TransferResponse classToCheck = c.Check(accInfo, transfer);
             return Json(classToCheck);
         }
 
         [HttpPost]
         public JsonResult CancelBet(Transfer transfer)
         {
+            Checker c = new Checker(_gameRepository);
             AuthorizeMain accInfo = _gameRepository.Balance(transfer.AcctId, transfer.Currency);
-            TransferResponse classToCheck = Checker.Check(accInfo, transfer);
+            TransferResponse classToCheck = c.Check(accInfo, transfer);
             return Json(classToCheck);
         }
     }
