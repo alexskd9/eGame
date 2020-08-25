@@ -1,7 +1,7 @@
-﻿using eGame.Models;
+﻿using eGameLibrary.Models;
 using System;
 
-namespace eGame.Helpers
+namespace eGameLibrary.Helpers
 {
     public class TransferResponseModel
     {

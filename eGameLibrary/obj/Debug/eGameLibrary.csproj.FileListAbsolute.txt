@@ -1,0 +1,9 @@
+C:\Users\BS-Dev\source\repos\eGame\eGameLibrary\bin\Debug\eGameLibrary.dll
+C:\Users\BS-Dev\source\repos\eGame\eGameLibrary\bin\Debug\eGameLibrary.pdb
+C:\Users\BS-Dev\source\repos\eGame\eGameLibrary\bin\Debug\Dapper.dll
+C:\Users\BS-Dev\source\repos\eGame\eGameLibrary\bin\Debug\Dapper.xml
+C:\Users\BS-Dev\source\repos\eGame\eGameLibrary\obj\Debug\eGameLibrary.csprojAssemblyReference.cache
+C:\Users\BS-Dev\source\repos\eGame\eGameLibrary\obj\Debug\eGameLibrary.csproj.CoreCompileInputs.cache
+C:\Users\BS-Dev\source\repos\eGame\eGameLibrary\obj\Debug\eGameLibrary.csproj.CopyComplete
+C:\Users\BS-Dev\source\repos\eGame\eGameLibrary\obj\Debug\eGameLibrary.dll
+C:\Users\BS-Dev\source\repos\eGame\eGameLibrary\obj\Debug\eGameLibrary.pdb

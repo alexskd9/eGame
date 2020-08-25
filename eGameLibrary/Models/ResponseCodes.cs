@@ -1,6 +1,4 @@
-﻿using System.Web.Mvc;
-
-namespace eGame.Models
+﻿namespace eGameLibrary.Models
 {
     public class ResponseCodes
     {

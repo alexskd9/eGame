@@ -1,6 +1,6 @@
-﻿using eGame.Models;
+﻿using eGameLibrary.Models;
 
-namespace eGame.Helpers
+namespace eGameLibrary.Helpers
 {
     public class Checker
     {

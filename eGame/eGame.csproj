@@ -120,21 +120,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\Authorization.cs" />
-    <Compile Include="Helpers\CancelBet.cs" />
-    <Compile Include="Helpers\Checker.cs" />
-    <Compile Include="Helpers\Transaction.cs" />
-    <Compile Include="Helpers\GetBalance.cs" />
-    <Compile Include="Helpers\TransferResponseModel.cs" />
-    <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\AccountInfo.cs" />
-    <Compile Include="Models\AccountInfoMain.cs" />
-    <Compile Include="Models\Authorize.cs" />
-    <Compile Include="Models\AuthotizeMain.cs" />
-    <Compile Include="Models\ResponseCodes.cs" />
-    <Compile Include="Models\Token.cs" />
-    <Compile Include="Models\Transfer.cs" />
-    <Compile Include="Models\TransferResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +146,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\eGameLibrary\eGameLibrary.csproj">
+      <Project>{16420022-9b3a-44bf-9d3b-c6c50fd52661}</Project>
+      <Name>eGameLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

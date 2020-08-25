@@ -1,4 +1,4 @@
-﻿namespace eGame.Models
+﻿namespace eGameLibrary.Models
 {
     public class TransferResponse
     {

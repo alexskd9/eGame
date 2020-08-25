@@ -1,8 +1,8 @@
-﻿using eGame.Helpers;
-using eGame.Models;
+﻿using eGameLibrary.Helpers;
+using eGameLibrary.Models;
 using System.Web.Mvc;
 
-namespace eGame.Controllers
+namespace eGameLibrary.Controllers
 {
     public class PlayerController : Controller
     {

@@ -1,12 +1,12 @@
 ﻿using Dapper;
-using eGame.Models;
+using eGameLibrary.Models;
 using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 
-namespace eGame.Helpers
+namespace eGameLibrary.Helpers
 {
     public class GetBalance
     {

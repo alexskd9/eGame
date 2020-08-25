@@ -74,3 +74,5 @@ C:\Users\BS-Dev\source\repos\eGame\eGame\obj\Debug\eGame.csproj.CopyComplete
 C:\Users\BS-Dev\source\repos\eGame\eGame\obj\Debug\eGame.dll
 C:\Users\BS-Dev\source\repos\eGame\eGame\obj\Debug\eGame.pdb
 C:\Users\BS-Dev\source\repos\eGame\eGame\obj\Debug\eGame.csprojAssemblyReference.cache
+C:\Users\BS-Dev\source\repos\eGame\eGame\bin\eGameLibrary.dll
+C:\Users\BS-Dev\source\repos\eGame\eGame\bin\eGameLibrary.pdb
