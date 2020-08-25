@@ -1,11 +1,7 @@
-﻿using Dapper;
-using eGameLibrary.DAL;
+﻿using eGameLibrary.DAL;
 using eGameLibrary.Contracts;
 using eGameLibrary.Models;
 using System;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
 
 namespace eGameLibrary.Helpers
 {
