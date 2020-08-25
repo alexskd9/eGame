@@ -16,21 +16,21 @@ namespace eGameLibrary.Helpers
             {
                 accInfo.Code = 50100;
                 accInfo.Msg = ResponseCodes.Response(accInfo.Code);
-                return TransferResponseModel.ModelCreator(transfer, accInfo.Code, accInfo.Msg);
+                return _gameRepository.ModelCreator(transfer, accInfo.Code, accInfo.Msg);
             }
 
             if (accInfo.AccountInfoMain.Currency.ToUpper() != transfer.Currency.ToUpper())
             {
                 accInfo.Code = 50112;
                 accInfo.Msg = ResponseCodes.Response(accInfo.Code);
-                return TransferResponseModel.ModelCreator(transfer, accInfo.Code, accInfo.Msg);
+                return _gameRepository.ModelCreator(transfer, accInfo.Code, accInfo.Msg);
             }
 
             if (transfer.Amount <= 0)
             {
                 accInfo.Code = 50113;
                 accInfo.Msg = ResponseCodes.Response(accInfo.Code);
-                return TransferResponseModel.ModelCreator(transfer, accInfo.Code, accInfo.Msg);
+                return _gameRepository.ModelCreator(transfer, accInfo.Code, accInfo.Msg);
             }
 
             if (transfer.Type == 1 && transfer.Amount <= accInfo.AccountInfoMain.Balance || transfer.Type == 4)
