@@ -1,5 +1,8 @@
-﻿namespace eGameLibrary.Models
+﻿using System.Xml.Serialization;
+
+namespace eGameLibrary.Models
 {
+    [XmlRoot(ElementName = "GetBalanceRequest")]
     public class AccountInfoMain
     {
         public int AcctId { get; set; }
